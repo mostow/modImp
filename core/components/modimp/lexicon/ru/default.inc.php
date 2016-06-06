@@ -1,18 +1,22 @@
 <?php
 include_once 'setting.inc.php';
 
-$_lang['modimp'] = 'modImp';
-$_lang['modimp_menu_desc'] = 'Пример расширения для разработки.';
-$_lang['modimp_intro_msg'] = 'Вы можете выделять сразу несколько предметов при помощи Shift или Ctrl.';
+$_lang['modimp'] = 'Интеграция с SL';
+$_lang['modimp_menu_desc'] = 'Импорт категорий и товаров.';
+$_lang['modimp_intro_msg'] = 'Курс следует брать с ресурса http://www.eubank.kz/. Вы можете выделять сразу несколько предметов при помощи Shift или Ctrl.';
 
-$_lang['modimp_items'] = 'Предметы';
-$_lang['modimp_item_id'] = 'Id';
-$_lang['modimp_item_name'] = 'Название';
-$_lang['modimp_item_description'] = 'Описание';
-$_lang['modimp_item_active'] = 'Активно';
+$_lang['modimp_sets'] = 'Настройки';
+$_lang['modimp_set_id'] = 'Id';
+$_lang['modimp_set_url'] = 'URL поставщика';
+$_lang['modimp_set_course'] = 'Курс RUB/KZT';
+$_lang['modimp_set_profit'] = 'Профит в %';
+$_lang['modimp_set_paid_delivery'] = 'Вкл. с платной доставкой';
+$_lang['modimp_set_price_paid_delivery'] = 'Цена платной доставки в %';
 
-$_lang['modimp_item_create'] = 'Создать предмет';
-$_lang['modimp_item_update'] = 'Изменить Предмет';
+$_lang['modimp_cats'] = 'Категоризация';
+
+$_lang['modimp_set_create'] = 'Создать';
+$_lang['modimp_item_update'] = 'Редактировать';
 $_lang['modimp_item_enable'] = 'Включить Предмет';
 $_lang['modimp_items_enable'] = 'Включить Предметы';
 $_lang['modimp_item_disable'] = 'Отключить Предмет';

@@ -3,9 +3,9 @@
 /**
  * Get an Item
  */
-class modImpItemGetProcessor extends modObjectGetProcessor {
-	public $objectType = 'modImpItem';
-	public $classKey = 'modImpItem';
+class mpSetGetProcessor extends modObjectGetProcessor {
+	public $objectType = 'mpSet';
+	public $classKey = 'mpSet';
 	public $languageTopics = array('modimp:default');
 	//public $permission = 'view';
 
@@ -26,4 +26,4 @@ class modImpItemGetProcessor extends modObjectGetProcessor {
 
 }
 
-return 'modImpItemGetProcessor';
+return 'mpSetGetProcessor';

@@ -1,18 +1,22 @@
 <?php
 include_once 'setting.inc.php';
 
-$_lang['modimp'] = 'modImp';
-$_lang['modimp_menu_desc'] = 'A sample Extra to develop from.';
+$_lang['modimp'] = 'Integration with SL';
+$_lang['modimp_menu_desc'] = 'Import categories and products.';
 $_lang['modimp_intro_msg'] = 'You can select multiple items by holding Shift or Ctrl button.';
 
-$_lang['modimp_items'] = 'Items';
-$_lang['modimp_item_id'] = 'Id';
-$_lang['modimp_item_name'] = 'Name';
-$_lang['modimp_item_description'] = 'Description';
-$_lang['modimp_item_active'] = 'Active';
+$_lang['modimp_sets'] = 'Settings';
+$_lang['modimp_set_id'] = 'Id';
+$_lang['modimp_set_url'] = 'URL provider';
+$_lang['modimp_set_course'] = 'Rate of RUB/KZT';
+$_lang['modimp_set_profit'] = 'Profit in %';
+$_lang['modimp_set_paid_delivery'] = 'Incl. with a delivery fee';
+$_lang['modimp_set_price_paid_delivery'] = 'Price paid delivery, in %';
 
-$_lang['modimp_item_create'] = 'Create Item';
-$_lang['modimp_item_update'] = 'Update Item';
+$_lang['modimp_cats'] = 'Categorization';
+
+$_lang['modimp_set_create'] = 'Create';
+$_lang['modimp_item_update'] = 'Update';
 $_lang['modimp_item_enable'] = 'Enable Item';
 $_lang['modimp_items_enable'] = 'Enable Items';
 $_lang['modimp_item_disable'] = 'Disable Item';

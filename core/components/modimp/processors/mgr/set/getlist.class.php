@@ -3,9 +3,9 @@
 /**
  * Get a list of Items
  */
-class modImpItemGetListProcessor extends modObjectGetListProcessor {
-	public $objectType = 'modImpItem';
-	public $classKey = 'modImpItem';
+class mpSetGetListProcessor extends modObjectGetListProcessor {
+	public $objectType = 'mpSet';
+	public $classKey = 'mpSet';
 	public $defaultSortField = 'id';
 	public $defaultSortDirection = 'DESC';
 	//public $permission = 'list';
@@ -103,4 +103,4 @@ class modImpItemGetListProcessor extends modObjectGetListProcessor {
 
 }
 
-return 'modImpItemGetListProcessor';
+return 'mpSetGetListProcessor';

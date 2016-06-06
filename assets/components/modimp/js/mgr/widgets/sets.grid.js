@@ -1,7 +1,7 @@
-modImp.grid.Items = function (config) {
+modImp.grid.Sets = function (config) {
 	config = config || {};
 	if (!config.id) {
-		config.id = 'modimp-grid-items';
+		config.id = 'modimp-grid-sets';
 	}
 	Ext.applyIf(config, {
 		url: modImp.config.connector_url,
@@ -10,7 +10,7 @@ modImp.grid.Items = function (config) {
 		tbar: this.getTopBar(config),
 		sm: new Ext.grid.CheckboxSelectionModel(),
 		baseParams: {
-			action: 'mgr/item/getlist'
+			action: 'mgr/set/getlist'
 		},
 		listeners: {
 			rowDblClick: function (grid, rowIndex, e) {
@@ -34,7 +34,7 @@ modImp.grid.Items = function (config) {
 		remoteSort: true,
 		autoHeight: true,
 	});
-	modImp.grid.Items.superclass.constructor.call(this, config);
+	modImp.grid.Sets.superclass.constructor.call(this, config);
 
 	// Clear selection on grid refresh
 	this.store.on('load', function () {
@@ -43,7 +43,7 @@ modImp.grid.Items = function (config) {
 		}
 	}, this);
 };
-Ext.extend(modImp.grid.Items, MODx.grid.Grid, {
+Ext.extend(modImp.grid.Sets, MODx.grid.Grid, {
 	windows: {},
 
 	getMenu: function (grid, rowIndex) {
@@ -55,9 +55,10 @@ Ext.extend(modImp.grid.Items, MODx.grid.Grid, {
 		this.addContextMenuItem(menu);
 	},
 
-	createItem: function (btn, e) {
+
+	createSet: function (btn, e) {
 		var w = MODx.load({
-			xtype: 'modimp-item-window-create',
+			xtype: 'modimp-set-window-create',
 			id: Ext.id(),
 			listeners: {
 				success: {
@@ -84,14 +85,14 @@ Ext.extend(modImp.grid.Items, MODx.grid.Grid, {
 		MODx.Ajax.request({
 			url: this.config.url,
 			params: {
-				action: 'mgr/item/get',
+				action: 'mgr/set/get',
 				id: id
 			},
 			listeners: {
 				success: {
 					fn: function (r) {
 						var w = MODx.load({
-							xtype: 'modimp-item-window-update',
+							xtype: 'modimp-set-window-update',
 							id: Ext.id(),
 							record: r,
 							listeners: {
@@ -118,14 +119,14 @@ Ext.extend(modImp.grid.Items, MODx.grid.Grid, {
 		}
 		MODx.msg.confirm({
 			title: ids.length > 1
-				? _('modimp_items_remove')
-				: _('modimp_item_remove'),
+				? _('modimp_sets_remove')
+				: _('modimp_set_remove'),
 			text: ids.length > 1
-				? _('modimp_items_remove_confirm')
-				: _('modimp_item_remove_confirm'),
+				? _('modimp_sets_remove_confirm')
+				: _('modimp_set_remove_confirm'),
 			url: this.config.url,
 			params: {
-				action: 'mgr/item/remove',
+				action: 'mgr/set/remove',
 				ids: Ext.util.JSON.encode(ids),
 			},
 			listeners: {
@@ -147,7 +148,7 @@ Ext.extend(modImp.grid.Items, MODx.grid.Grid, {
 		MODx.Ajax.request({
 			url: this.config.url,
 			params: {
-				action: 'mgr/item/disable',
+				action: 'mgr/set/disable',
 				ids: Ext.util.JSON.encode(ids),
 			},
 			listeners: {
@@ -168,7 +169,7 @@ Ext.extend(modImp.grid.Items, MODx.grid.Grid, {
 		MODx.Ajax.request({
 			url: this.config.url,
 			params: {
-				action: 'mgr/item/enable',
+				action: 'mgr/set/enable',
 				ids: Ext.util.JSON.encode(ids),
 			},
 			listeners: {
@@ -182,31 +183,41 @@ Ext.extend(modImp.grid.Items, MODx.grid.Grid, {
 	},
 
 	getFields: function (config) {
-		return ['id', 'name', 'description', 'active', 'actions'];
+		return ['id', 'url', 'course', 'profit', 'paid_delivery', 'price_paid_delivery', 'actions'];
 	},
 
 	getColumns: function (config) {
 		return [{
-			header: _('modimp_item_id'),
+			header: _('modimp_set_id'),
 			dataIndex: 'id',
 			sortable: true,
-			width: 70
+			width: 10
 		}, {
-			header: _('modimp_item_name'),
-			dataIndex: 'name',
+			header: _('modimp_set_url'),
+			dataIndex: 'url',
 			sortable: true,
-			width: 200,
+			width: 80,
 		}, {
-			header: _('modimp_item_description'),
-			dataIndex: 'description',
+			header: _('modimp_set_course'),
+			dataIndex: 'course',
 			sortable: false,
-			width: 250,
+			width: 40,
 		}, {
-			header: _('modimp_item_active'),
+			header: _('modimp_set_profit'),
+			dataIndex: 'profit',
+			sortable: false,
+			width: 40,
+		}, {
+			header: _('modimp_set_paid_delivery'),
 			dataIndex: 'active',
 			renderer: modImp.utils.renderBoolean,
 			sortable: true,
-			width: 100,
+			width: 60,
+		}, {
+			header: _('modimp_set_price_paid_delivery'),
+			dataIndex: 'price_paid_delivery',
+			sortable: false,
+			width: 60,
 		}, {
 			header: _('modimp_grid_actions'),
 			dataIndex: 'actions',
@@ -219,8 +230,8 @@ Ext.extend(modImp.grid.Items, MODx.grid.Grid, {
 
 	getTopBar: function (config) {
 		return [{
-			text: '<i class="icon icon-plus"></i>&nbsp;' + _('modimp_item_create'),
-			handler: this.createItem,
+			text: '<i class="icon icon-plus"></i>&nbsp;' + _('modimp_set_create'),
+			handler: this.createSet,
 			scope: this
 		}, '->', {
 			xtype: 'textfield',
@@ -293,4 +304,4 @@ Ext.extend(modImp.grid.Items, MODx.grid.Grid, {
 		this.refresh();
 	}
 });
-Ext.reg('modimp-grid-items', modImp.grid.Items);
+Ext.reg('modimp-grid-sets', modImp.grid.Sets);

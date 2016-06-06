@@ -8,7 +8,7 @@ modImp.window.CreateItem = function (config) {
 		width: 550,
 		autoHeight: true,
 		url: modImp.config.connector_url,
-		action: 'mgr/item/create',
+		action: 'mgr/set/create',
 		fields: this.getFields(config),
 		keys: [{
 			key: Ext.EventObject.ENTER, shift: true, fn: function () {
@@ -23,21 +23,21 @@ Ext.extend(modImp.window.CreateItem, MODx.Window, {
 	getFields: function (config) {
 		return [{
 			xtype: 'textfield',
-			fieldLabel: _('modimp_item_name'),
-			name: 'name',
-			id: config.id + '-name',
+			fieldLabel: _('modimp_set_url'),
+			name: 'url',
+			id: config.id + '-url',
 			anchor: '99%',
 			allowBlank: false,
 		}, {
 			xtype: 'textarea',
-			fieldLabel: _('modimp_item_description'),
-			name: 'description',
-			id: config.id + '-description',
+			fieldLabel: _('modimp_set_course'),
+			name: 'course',
+			id: config.id + '-course',
 			height: 150,
 			anchor: '99%'
 		}, {
 			xtype: 'xcheckbox',
-			boxLabel: _('modimp_item_active'),
+			boxLabel: _('modimp_set_active'),
 			name: 'active',
 			id: config.id + '-active',
 			checked: true,
@@ -48,7 +48,7 @@ Ext.extend(modImp.window.CreateItem, MODx.Window, {
 	}
 
 });
-Ext.reg('modimp-item-window-create', modImp.window.CreateItem);
+Ext.reg('modimp-set-window-create', modImp.window.CreateItem);
 
 
 modImp.window.UpdateItem = function (config) {
@@ -61,7 +61,7 @@ modImp.window.UpdateItem = function (config) {
 		width: 550,
 		autoHeight: true,
 		url: modImp.config.connector_url,
-		action: 'mgr/item/update',
+		action: 'mgr/set/update',
 		fields: this.getFields(config),
 		keys: [{
 			key: Ext.EventObject.ENTER, shift: true, fn: function () {
@@ -81,15 +81,15 @@ Ext.extend(modImp.window.UpdateItem, MODx.Window, {
 		}, {
 			xtype: 'textfield',
 			fieldLabel: _('modimp_item_name'),
-			name: 'name',
-			id: config.id + '-name',
+			name: 'url',
+			id: config.id + '-url',
 			anchor: '99%',
 			allowBlank: false,
 		}, {
 			xtype: 'textarea',
 			fieldLabel: _('modimp_item_description'),
-			name: 'description',
-			id: config.id + '-description',
+			name: 'course',
+			id: config.id + '-course',
 			anchor: '99%',
 			height: 150,
 		}, {
@@ -104,4 +104,4 @@ Ext.extend(modImp.window.UpdateItem, MODx.Window, {
 	}
 
 });
-Ext.reg('modimp-item-window-update', modImp.window.UpdateItem);
+Ext.reg('modimp-set-window-update', modImp.window.UpdateItem);

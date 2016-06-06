@@ -3,9 +3,9 @@
 /**
  * Create an Item
  */
-class modImpItemCreateProcessor extends modObjectCreateProcessor {
-	public $objectType = 'modImpItem';
-	public $classKey = 'modImpItem';
+class mpSetCreateProcessor extends modObjectCreateProcessor {
+	public $objectType = 'mpSet';
+	public $classKey = 'mpSet';
 	public $languageTopics = array('modimp');
 	//public $permission = 'create';
 
@@ -27,4 +27,4 @@ class modImpItemCreateProcessor extends modObjectCreateProcessor {
 
 }
 
-return 'modImpItemCreateProcessor';
+return 'mpSetCreateProcessor';

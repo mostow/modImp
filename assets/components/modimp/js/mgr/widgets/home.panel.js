@@ -20,14 +20,25 @@ modImp.panel.Home = function (config) {
 			border: true,
 			hideMode: 'offsets',
 			items: [{
-				title: _('modimp_items'),
+				title: _('modimp_sets'),
 				layout: 'anchor',
 				items: [{
 					html: _('modimp_intro_msg'),
 					cls: 'panel-desc',
 				}, {
-					xtype: 'modimp-grid-items',
+					xtype: 'modimp-grid-sets',
 					cls: 'main-wrapper',
+				}]
+			}, {
+				title: _('modimp_cats'),
+				layout: 'anchor',
+				items: [{
+					html: _('modimp_intro_msg'),
+					border: false,
+					bodyCssClass: 'panel-desc',
+				},{
+					xtype: 'modimp-cats-tree',
+					preventRender: true,
 				}]
 			}]
 		}]
