@@ -2,16 +2,39 @@
 <model package="modimp" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="modimp"
 	   version="1.1">
 
-	<object class="modImpItem" table="modimp_items" extends="xPDOSimpleObject">
-		<field key="name" dbtype="varchar" precision="100" phptype="string" null="false" default=""/>
-		<field key="description" dbtype="text" phptype="text" null="true" default=""/>
-		<field key="active" dbtype="tinyint" precision="1" phptype="boolean" null="true" default="1"/>
+	<object class="mpSet" table="mp_sets" extends="xPDOSimpleObject">
+		<field key="url" dbtype="varchar" precision="100" phptype="string" null="false" default=""/>
+		<field key="course" dbtype="integer" precision="10" attributes="unsigned" phptype="integer" null="true" default="0" />
+		<field key="profit" dbtype="integer" precision="10" attributes="unsigned" phptype="integer" null="true" default="0" />
+		<field key="paid_delivery" dbtype="tinyint" precision="1" phptype="boolean" null="true" default="0"/>
+		<field key="price_paid_delivery" dbtype="integer" precision="10" attributes="unsigned" phptype="integer" null="true" default="0" />
+	</object>
+
+	<object class="mpCat" table="mp_cats" extends="xPDOSimpleObject">
+		<field key="identifier" dbtype="integer" precision="15" attributes="unsigned" phptype="integer" null="true" default="0" />
+		<field key="root_identifier" dbtype="integer" precision="15" attributes="unsigned" phptype="integer" null="true" default="0" />
+		<field key="parent_identifier" dbtype="integer" precision="15" attributes="unsigned" phptype="integer" null="true" default="0" />
+		<field key="level" dbtype="integer" precision="3" attributes="unsigned" phptype="integer" null="true" default="0" />
+		<field key="is_leaf" dbtype="tinyint" precision="1" phptype="boolean" null="true" default="0"/>
+		<field key="name" dbtype="varchar" precision="150" phptype="string" null="false" default=""/>
+		<field key="path" dbtype="varchar" precision="250" phptype="string" null="false" default=""/>
+		<field key="slug" dbtype="varchar" precision="250" phptype="string" null="false" default=""/>
+        <field key="photo_base_url" dbtype="varchar" precision="250" phptype="string" null="false" default=""/>
+        <field key="active" dbtype="tinyint" precision="1" phptype="boolean" null="true" default="0"/>
 
 		<index alias="name" name="name" primary="false" unique="false" type="BTREE">
 			<column key="name" length="" collation="A" null="false"/>
 		</index>
 		<index alias="active" name="active" primary="false" unique="false" type="BTREE">
 			<column key="active" length="" collation="A" null="false"/>
+		</index>
+	</object>
+
+	<object class="mpLog" table="mp_logs" extends="xPDOSimpleObject">
+		<field key="description" dbtype="text" phptype="text" null="true" default=""/>
+
+		<index alias="description" name="description" primary="false" unique="false" type="BTREE">
+			<column key="description" length="" collation="A" null="false"/>
 		</index>
 	</object>
 
