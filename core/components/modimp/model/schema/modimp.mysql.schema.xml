@@ -31,7 +31,7 @@
 	</object>
 
 	<object class="mpLog" table="mp_logs" extends="xPDOSimpleObject">
-		<field key="description" dbtype="text" phptype="text" null="true" default=""/>
+        <field key="description" dbtype="varchar" precision="250" phptype="string" null="false" default=""/>
 
 		<index alias="description" name="description" primary="false" unique="false" type="BTREE">
 			<column key="description" length="" collation="A" null="false"/>

@@ -12,9 +12,10 @@ $xpdo_meta_map['mpLog']= array (
   array (
     'description' => 
     array (
-      'dbtype' => 'text',
-      'phptype' => 'text',
-      'null' => true,
+      'dbtype' => 'varchar',
+      'precision' => '250',
+      'phptype' => 'string',
+      'null' => false,
       'default' => '',
     ),
   ),
