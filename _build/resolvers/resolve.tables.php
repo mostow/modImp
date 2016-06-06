@@ -12,7 +12,7 @@ if ($object->xpdo) {
 
             $manager = $modx->getManager();
             $objects = array(
-                'mpSet ',
+                'mpSet',
                 'mpCat',
                 'mpLog',
             );
