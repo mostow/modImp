@@ -11,7 +11,11 @@ if ($object->xpdo) {
             $modx->addPackage('modimp', $modelPath);
 
             $manager = $modx->getManager();
-            $objects = array();
+            $objects = array(
+                'mpSet ',
+                'mpCat',
+                'mpLog',
+            );
             $schemaFile = MODX_CORE_PATH . 'components/modimp/model/schema/modimp.mysql.schema.xml';
             if (is_file($schemaFile)) {
                 $schema = new SimpleXMLElement($schemaFile, 0, true);
