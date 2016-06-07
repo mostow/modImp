@@ -7,6 +7,7 @@ $_lang['modimp_intro_set_msg'] = "Курс следует брать с ресу
 Если указано Вкл. с платной доставкой - будет осуществлен импорт позиций с признаком платная доставка.<br /> 
 Значение поля Цена платной доставки в %, плюсуется к значению Профита.";
 $_lang['modimp_intro_cat_msg'] = 'Необходимо отметить требуемые категории для импорта.';
+$_lang['modimp_intro_log_msg'] = 'Логи событий.';
 
 $_lang['modimp_sets'] = 'Настройки';
 $_lang['modimp_set_id'] = 'Id';
@@ -17,7 +18,6 @@ $_lang['modimp_set_paid_delivery'] = 'Вкл. с платной доставко
 $_lang['modimp_set_price_paid_delivery'] = 'Цена платной доставки в %';
 
 $_lang['modimp_cats'] = 'Категоризация';
-
 $_lang['modimp_cat_imp'] = 'Импорт категорий';
 $_lang['modimp_cat_sync'] = 'Синхронизация категорий';
 $_lang['modimp_cat_imp_products'] = 'Импорт позиций';
@@ -35,10 +35,12 @@ $_lang['modimp_cat_photo_base_url'] = 'Фото';
 $_lang['modimp_cat_active'] = 'Вкл.';
 $_lang['modimp_cat_slug'] = 'Дубль';
 
+$_lang['modimp_logs'] = 'Лог';
+$_lang['modimp_log_id'] = 'Id';
+$_lang['modimp_log_description'] = 'Описание';
+
 $_lang['modimp_set_create'] = 'Создать';
 $_lang['modimp_set_update'] = 'Редактировать';
-
-
 
 $_lang['modimp_item_enable'] = 'Включить Предмет';
 $_lang['modimp_items_enable'] = 'Включить Предметы';

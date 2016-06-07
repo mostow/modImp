@@ -3,10 +3,10 @@ modImp.tree.Cats = function(config) {
 	Ext.applyIf(config,{
 		url: modImp.config.connector_url
 		,id: 'modimp-cats-tree'
-		,title: ''
+		,title: 'Катагории'
 		,anchor: '100%'
 		,rootVisible: false
-		,expandFirst: false
+		,expandFirst: true
 		,enableDD: false
 		,ddGroup: 'modx-treedrop-dd'
 		,remoteToolbar: false

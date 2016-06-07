@@ -40,7 +40,19 @@ modImp.panel.Home = function (config) {
 					xtype: 'modimp-cats-tree',
 					preventRender: true,
 				}]
-			}]
+
+			}, {
+				title: _('modimp_logs'),
+				layout: 'anchor',
+				items: [{
+					html: _('modimp_intro_log_msg'),
+					border: false,
+					bodyCssClass: 'panel-desc',
+				},{
+					xtype: 'modimp-grid-logs',
+					preventRender: true,
+				}]
+            }]
 		}]
 	});
 	modImp.panel.Home.superclass.constructor.call(this, config);

@@ -34,6 +34,7 @@ class modImpHomeManagerController extends modImpMainController {
 		$this->addJavascript($this->modImp->config['jsUrl'] . 'mgr/widgets/sets.grid.js');
 		$this->addJavascript($this->modImp->config['jsUrl'] . 'mgr/widgets/sets.windows.js');
 		$this->addJavascript($this->modImp->config['jsUrl'] . 'mgr/widgets/cats.tree.js');
+		$this->addJavascript($this->modImp->config['jsUrl'] . 'mgr/widgets/logs.grid.js');
 		$this->addJavascript($this->modImp->config['jsUrl'] . 'mgr/widgets/home.panel.js');
 		$this->addJavascript($this->modImp->config['jsUrl'] . 'mgr/sections/home.js');
 		$this->addHtml('<script type="text/javascript">
