@@ -23,7 +23,7 @@ modImp.panel.Home = function (config) {
 				title: _('modimp_sets'),
 				layout: 'anchor',
 				items: [{
-					html: _('modimp_intro_msg'),
+					html: _('modimp_intro_set_msg'),
 					cls: 'panel-desc',
 				}, {
 					xtype: 'modimp-grid-sets',
@@ -33,7 +33,7 @@ modImp.panel.Home = function (config) {
 				title: _('modimp_cats'),
 				layout: 'anchor',
 				items: [{
-					html: _('modimp_intro_msg'),
+					html: _('modimp_intro_cat_msg'),
 					border: false,
 					bodyCssClass: 'panel-desc',
 				},{

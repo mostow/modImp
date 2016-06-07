@@ -18,8 +18,28 @@ $_lang['modimp_set_price_paid_delivery'] = 'Цена платной достав
 
 $_lang['modimp_cats'] = 'Категоризация';
 
+$_lang['modimp_cat_imp'] = 'Импорт категорий';
+$_lang['modimp_cat_sync'] = 'Синхронизация категорий';
+$_lang['modimp_cat_imp_products'] = 'Импорт позиций';
+
+$_lang['modimp_cat_id'] = 'ID';
+$_lang['modimp_cat_identifier'] = 'ID категории';
+$_lang['modimp_cat_root_identifier'] = 'ID root';
+$_lang['modimp_cat_parent_identifier'] = 'ID родителя';
+$_lang['modimp_cat_level'] = 'Уровень';
+$_lang['modimp_cat_is_leaf'] = 'Конечная';
+$_lang['modimp_cat_name'] = 'Наименование';
+$_lang['modimp_cat_path'] = 'Путь';
+$_lang['modimp_cat_slug'] = 'Дубль';
+$_lang['modimp_cat_photo_base_url'] = 'Фото';
+$_lang['modimp_cat_active'] = 'Вкл.';
+$_lang['modimp_cat_slug'] = 'Дубль';
+
 $_lang['modimp_set_create'] = 'Создать';
 $_lang['modimp_set_update'] = 'Редактировать';
+
+
+
 $_lang['modimp_item_enable'] = 'Включить Предмет';
 $_lang['modimp_items_enable'] = 'Включить Предметы';
 $_lang['modimp_item_disable'] = 'Отключить Предмет';

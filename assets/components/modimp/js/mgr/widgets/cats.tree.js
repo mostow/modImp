@@ -6,7 +6,7 @@ modImp.tree.Cats = function(config) {
 		,title: ''
 		,anchor: '100%'
 		,rootVisible: false
-		,expandFirst: true
+		,expandFirst: false
 		,enableDD: false
 		,ddGroup: 'modx-treedrop-dd'
 		,remoteToolbar: false
@@ -18,15 +18,13 @@ modImp.tree.Cats = function(config) {
 			,currentAction: MODx.request.a || 0
 		}
 
-		//,tbar: this.getTopBar(config)
-
 		,listeners: {
 			checkchange: function(node, checked) {
 				this.mask.show();
 				MODx.Ajax.request({
 					url: modImp.config.connector_url
 					,params: {
-						action: 'mgr/cat/cat'
+						action: 'mgr/cat/check'
 						,category_id: node.attributes.pk
 						,product_id: MODx.request.id
 					}
@@ -44,36 +42,6 @@ modImp.tree.Cats = function(config) {
 	modImp.tree.Cats.superclass.constructor.call(this,config);
 };
 Ext.extend(modImp.tree.Cats, MODx.tree.Tree,{
-
-	getTopBar: function (config) {
-		return [{
-			text: '<i class="icon icon-plus"></i>&nbsp;' + _('modimp_set_create'),
-			handler: this.createCat,
-			scope: this
-		}, '->', {
-			xtype: 'textfield',
-			name: 'query',
-			width: 200,
-			id: config.id + '-search-field',
-			emptyText: _('modimp_grid_search'),
-			listeners: {
-				render: {
-					fn: function (tf) {
-						tf.getEl().addKeyListener(Ext.EventObject.ENTER, function () {
-							this._doSearch(tf);
-						}, this);
-					}, scope: this
-				}
-			}
-		}, {
-			xtype: 'button',
-			id: config.id + '-search-clear',
-			text: '<i class="icon icon-times"></i>',
-			listeners: {
-				click: {fn: this._clearSearch, scope: this}
-			}
-		}];
-	},
 
 	_showContextMenu: function(n,e) {
 		n.select();
