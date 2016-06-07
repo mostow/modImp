@@ -57,9 +57,9 @@ class mpSetGetListProcessor extends modObjectGetListProcessor {
 		$array['actions'][] = array(
 			'cls' => '',
 			'icon' => 'icon icon-edit',
-			'title' => $this->modx->lexicon('modimp_item_update'),
+			'title' => $this->modx->lexicon('modimp_set_update'),
 			//'multiple' => $this->modx->lexicon('modimp_items_update'),
-			'action' => 'updateItem',
+			'action' => 'updateSet',
 			'button' => true,
 			'menu' => true,
 		);
@@ -68,9 +68,9 @@ class mpSetGetListProcessor extends modObjectGetListProcessor {
 			$array['actions'][] = array(
 				'cls' => '',
 				'icon' => 'icon icon-power-off action-green',
-				'title' => $this->modx->lexicon('modimp_item_enable'),
-				'multiple' => $this->modx->lexicon('modimp_items_enable'),
-				'action' => 'enableItem',
+				'title' => $this->modx->lexicon('modimp_set_enable'),
+				'multiple' => $this->modx->lexicon('modimp_sets_enable'),
+				'action' => 'enableSet',
 				'button' => true,
 				'menu' => true,
 			);
@@ -79,9 +79,9 @@ class mpSetGetListProcessor extends modObjectGetListProcessor {
 			$array['actions'][] = array(
 				'cls' => '',
 				'icon' => 'icon icon-power-off action-gray',
-				'title' => $this->modx->lexicon('modimp_item_disable'),
-				'multiple' => $this->modx->lexicon('modimp_items_disable'),
-				'action' => 'disableItem',
+				'title' => $this->modx->lexicon('modimp_set_disable'),
+				'multiple' => $this->modx->lexicon('modimp_sets_disable'),
+				'action' => 'disableSet',
 				'button' => true,
 				'menu' => true,
 			);
@@ -91,9 +91,9 @@ class mpSetGetListProcessor extends modObjectGetListProcessor {
 		$array['actions'][] = array(
 			'cls' => '',
 			'icon' => 'icon icon-trash-o action-red',
-			'title' => $this->modx->lexicon('modimp_item_remove'),
-			'multiple' => $this->modx->lexicon('modimp_items_remove'),
-			'action' => 'removeItem',
+			'title' => $this->modx->lexicon('modimp_set_remove'),
+			'multiple' => $this->modx->lexicon('modimp_sets_remove'),
+			'action' => 'removeSet',
 			'button' => true,
 			'menu' => true,
 		);

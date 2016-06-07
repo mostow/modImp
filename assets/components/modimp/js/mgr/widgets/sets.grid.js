@@ -15,7 +15,7 @@ modImp.grid.Sets = function (config) {
 		listeners: {
 			rowDblClick: function (grid, rowIndex, e) {
 				var row = grid.store.getAt(rowIndex);
-				this.updateItem(grid, e, row);
+				this.updateSet(grid, e, row);
 			}
 		},
 		viewConfig: {
@@ -54,8 +54,7 @@ Ext.extend(modImp.grid.Sets, MODx.grid.Grid, {
 
 		this.addContextMenuItem(menu);
 	},
-
-
+	
 	createSet: function (btn, e) {
 		var w = MODx.load({
 			xtype: 'modimp-set-window-create',
@@ -73,7 +72,7 @@ Ext.extend(modImp.grid.Sets, MODx.grid.Grid, {
 		w.show(e.target);
 	},
 
-	updateItem: function (btn, e, row) {
+	updateSet: function (btn, e, row) {
 		if (typeof(row) != 'undefined') {
 			this.menu.record = row.data;
 		}
@@ -112,7 +111,39 @@ Ext.extend(modImp.grid.Sets, MODx.grid.Grid, {
 		});
 	},
 
-	removeItem: function (act, btn, e) {
+	editSet: function (btn, e) {
+
+		MODx.Ajax.request({
+			url: this.config.url,
+			params: {
+				action: 'mgr/set/get',
+				id: id
+			},
+			listeners: {
+				success: {
+					fn: function (r) {
+						var w = MODx.load({
+							xtype: 'modimp-set-window-update',
+							id: Ext.id(),
+							record: r,
+							listeners: {
+								success: {
+									fn: function () {
+										this.refresh();
+									}, scope: this
+								}
+							}
+						});
+						w.reset();
+						w.setValues(r.object);
+						w.show(e.target);
+					}, scope: this
+				}
+			}
+		});
+	},
+
+	removeSet: function (act, btn, e) {
 		var ids = this._getSelectedIds();
 		if (!ids.length) {
 			return false;
@@ -140,7 +171,7 @@ Ext.extend(modImp.grid.Sets, MODx.grid.Grid, {
 		return true;
 	},
 
-	disableItem: function (act, btn, e) {
+	disableSet: function (act, btn, e) {
 		var ids = this._getSelectedIds();
 		if (!ids.length) {
 			return false;
@@ -161,7 +192,7 @@ Ext.extend(modImp.grid.Sets, MODx.grid.Grid, {
 		})
 	},
 
-	enableItem: function (act, btn, e) {
+	enableSet: function (act, btn, e) {
 		var ids = this._getSelectedIds();
 		if (!ids.length) {
 			return false;
@@ -183,7 +214,7 @@ Ext.extend(modImp.grid.Sets, MODx.grid.Grid, {
 	},
 
 	getFields: function (config) {
-		return ['id', 'url', 'course', 'profit', 'paid_delivery', 'price_paid_delivery', 'actions'];
+		return ['id', 'url', 'course', 'profit', 'paid_delivery', 'price_paid_delivery'];
 	},
 
 	getColumns: function (config) {
@@ -209,29 +240,21 @@ Ext.extend(modImp.grid.Sets, MODx.grid.Grid, {
 			width: 40,
 		}, {
 			header: _('modimp_set_paid_delivery'),
-			dataIndex: 'active',
+			dataIndex: 'paid_delivery',
 			renderer: modImp.utils.renderBoolean,
-			sortable: true,
 			width: 60,
 		}, {
 			header: _('modimp_set_price_paid_delivery'),
 			dataIndex: 'price_paid_delivery',
 			sortable: false,
 			width: 60,
-		}, {
-			header: _('modimp_grid_actions'),
-			dataIndex: 'actions',
-			renderer: modImp.utils.renderActions,
-			sortable: false,
-			width: 100,
-			id: 'actions'
 		}];
 	},
 
 	getTopBar: function (config) {
 		return [{
-			text: '<i class="icon icon-plus"></i>&nbsp;' + _('modimp_set_create'),
-			handler: this.createSet,
+			text: '<i class="icon icon-edit"></i>&nbsp;' + _('modimp_set_update'),
+			handler: this.editSet,
 			scope: this
 		}, '->', {
 			xtype: 'textfield',

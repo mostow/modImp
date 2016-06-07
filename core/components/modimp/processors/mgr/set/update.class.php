@@ -3,9 +3,9 @@
 /**
  * Update an Item
  */
-class modImpItemUpdateProcessor extends modObjectUpdateProcessor {
-	public $objectType = 'modImpItem';
-	public $classKey = 'modImpItem';
+class mpSetUpdateProcessor extends modObjectUpdateProcessor {
+	public $objectType = 'mpSet';
+	public $classKey = 'mpSet';
 	public $languageTopics = array('modimp');
 	//public $permission = 'save';
 
@@ -30,20 +30,20 @@ class modImpItemUpdateProcessor extends modObjectUpdateProcessor {
 	 */
 	public function beforeSet() {
 		$id = (int)$this->getProperty('id');
-		$name = trim($this->getProperty('name'));
+		$course= trim($this->getProperty('course'));
 		if (empty($id)) {
-			return $this->modx->lexicon('modimp_item_err_ns');
+			return $this->modx->lexicon('modimp_set_err_ns');
 		}
 
-		if (empty($name)) {
-			$this->modx->error->addField('name', $this->modx->lexicon('modimp_item_err_name'));
+		if (empty($course)) {
+			$this->modx->error->addField('course', $this->modx->lexicon('modimp_set_err_name'));
 		}
-		elseif ($this->modx->getCount($this->classKey, array('name' => $name, 'id:!=' => $id))) {
-			$this->modx->error->addField('name', $this->modx->lexicon('modimp_item_err_ae'));
+		elseif ($this->modx->getCount($this->classKey, array('course' => $course, 'id:!=' => $id))) {
+			$this->modx->error->addField('course', $this->modx->lexicon('modimp_set_err_ae'));
 		}
 
 		return parent::beforeSet();
 	}
 }
 
-return 'modImpItemUpdateProcessor';
+return 'mpSetUpdateProcessor';

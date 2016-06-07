@@ -13,11 +13,13 @@ modImp.tree.Cats = function(config) {
 		,action: 'mgr/cat/getnodes'
 		,tbarCfg: {id: config.id ? config.id+'-tbar' : 'modx-tree-resource-tbar'}
 		,baseParams: {
-			action: 'mgr/cat/getnodes'
+			action: 'mgr/cat/getnodes_'
 			,currentResource: MODx.request.id || 0
 			,currentAction: MODx.request.a || 0
 		}
-		//,tbar: []
+
+		//,tbar: this.getTopBar(config)
+
 		,listeners: {
 			checkchange: function(node, checked) {
 				this.mask.show();
@@ -42,6 +44,36 @@ modImp.tree.Cats = function(config) {
 	modImp.tree.Cats.superclass.constructor.call(this,config);
 };
 Ext.extend(modImp.tree.Cats, MODx.tree.Tree,{
+
+	getTopBar: function (config) {
+		return [{
+			text: '<i class="icon icon-plus"></i>&nbsp;' + _('modimp_set_create'),
+			handler: this.createCat,
+			scope: this
+		}, '->', {
+			xtype: 'textfield',
+			name: 'query',
+			width: 200,
+			id: config.id + '-search-field',
+			emptyText: _('modimp_grid_search'),
+			listeners: {
+				render: {
+					fn: function (tf) {
+						tf.getEl().addKeyListener(Ext.EventObject.ENTER, function () {
+							this._doSearch(tf);
+						}, this);
+					}, scope: this
+				}
+			}
+		}, {
+			xtype: 'button',
+			id: config.id + '-search-clear',
+			text: '<i class="icon icon-times"></i>',
+			listeners: {
+				click: {fn: this._clearSearch, scope: this}
+			}
+		}];
+	},
 
 	_showContextMenu: function(n,e) {
 		n.select();
